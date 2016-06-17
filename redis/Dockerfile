@@ -1,14 +1,14 @@
-	# Set the base image to Ubuntu
+	# Setar a imagem base como Ubuntu
 FROM ubuntu
 
-	# File Author / Maintainer
+	# Autor/Mantenedor
 MAINTAINER Anand Mani Sankar
 
-	# Update the repository and install Redis Server
+	# Atualizar o repositório e instalar o server do Redis
 RUN apt-get update && apt-get install -y redis-server
 
-	# Expose Redis port 6379
+	# Expor Redis na porta 6379
 EXPOSE 6379
 
-	# Run Redis Server
+	# Rodar Redis Server
 ENTRYPOINT  ["/usr/bin/redis-server"]

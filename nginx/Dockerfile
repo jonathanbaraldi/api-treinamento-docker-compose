@@ -1,8 +1,8 @@
-# Set nginx base image
+	# Setar a imagem do nginx
 FROM nginx
 
-# File Author / Maintainer
+	# Autor/Mantenedor
 MAINTAINER Anand Mani Sankar
 
-# Copy custom configuration file from the current directory
+	# Copiar configurações customizadas do diretório atual
 COPY nginx.conf /etc/nginx/nginx.conf
