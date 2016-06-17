@@ -33,9 +33,10 @@ Ir no diretório /node onde tem o Dockerfile da aplicação, e rodar o build.
 Com isso já temos a aplicação rodando, conectada no Redis
 
 # 4) Container NGiNX 
-Ir no diretório /nginx onde tem o Dockerfile da aplicação, e rodar o build.
-	Fazendo a imagem
+Ir no diretório /nginx onde tem o Dockerfile da aplicação, e rodar o build. Fazendo a imagem: 
+
 	# docker build -t <your username>/nginx .
+
 	Criando o container do nginx a partir da imagem e fazendo a ligação com o container do Node
 	# docker run -d --name nginx -p 80:80 --link <app running>  <your username>/nginx
 	# docker run -d --name nginx -p 80:80 --link node jonathanbaraldi/nginx
@@ -50,6 +51,7 @@ Para rodar nosso docker-compose, precisamos remover todos os containers que est�
 		----------------------------------
 		This page has been viewed 29 times
 		----------------------------------
-		
+
 E após isso acessar no IP:80, pegando usando
+
 	# docker-machine env default
