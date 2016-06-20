@@ -12,18 +12,24 @@ node1:
         - redis
     ports:
         - "8080"
+    volumes:
+        -  volumeteste:/tmp/volumeteste
 node2:
     build: ./node
     links:
         - redis
     ports:
         - "8080"
+    volumes:
+        -  volumeteste:/tmp/volumeteste
 node3:
     build: ./node
     links:
         - redis
     ports:
         - "8080"
+    volumes:
+        -  volumeteste:/tmp/volumeteste
 redis:
     image: redis
     ports:

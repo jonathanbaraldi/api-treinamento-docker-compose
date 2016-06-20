@@ -41,7 +41,7 @@ Ir no diretório /nginx onde tem o Dockerfile da aplicação, e rodar o build. F
 	# docker run -d --name nginx -p 80:80 --link <app running>  <your username>/nginx
 	# docker run -d --name nginx -p 80:80 --link node jonathanbaraldi/nginx
 
-
+----------------------------------------------------------------
 # 5) Docker Compose
 Feito isso, colocando os containers para rodar, e interligando eles, podemos ver como funciona nossa aplicação que tem um contador de acessos.
 Para rodar nosso docker-compose, precisamos remover todos os containers que estão rodando e ir na raiz do diretório para rodar.
@@ -55,3 +55,29 @@ Para rodar nosso docker-compose, precisamos remover todos os containers que est�
 E após isso acessar no IP:80, pegando usando
 
 	# docker-machine env default
+
+
+----------------------------------------------------------------
+# 6) Criação de volumes
+Criar o volume e dar o nome e a ele.
+	# docker volume create --name <nome do volume>
+
+Depois de criando, adicionar ele na criação do docker-compose. Com isso ele não irá conter dados.
+O que é preciso e levantar um container, atachar esse volume e então rodar o comando de copia dos dados do host para dentro do container.
+
+	# /Library/WebServer/Documents/jon/api-treinamento-docker-compose
+
+	Copiar a pasta volumeteste para a pasta tmp dentro do container. E isso se replicará, pois o volume está montado em todos containers.
+	# docker cp volumeteste e8d0ef878dd8:/tmp/
+
+	# docker cp arquivo.txt <id do container>:/arquivo.txt
+	# docker cp <id do container>:/arquivo.txt arquivo.txt
+
+Com isso, o volume começa a ser populado com os arquivo necessários locais, ou pode-se rodar um script para popular o volume com dados vindos da internet. Para entrar dentro do container e ver os arquivos que foram copiados executar o shell de dentro do container:
+
+	# docker exec -it <id container> /bin/bash
+	# cd /tmp/volumeteste
+	# ls
+
+
+
